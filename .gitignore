@@ -1,0 +1,8 @@
+.DS_Store
+*.log
+.vercel
+node_modules/
+desktop-*.png
+mobile-*.png
+full-page-*.png
+modal-*.png

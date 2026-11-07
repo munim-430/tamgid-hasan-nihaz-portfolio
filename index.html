@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORVANTE — Tamgid Hasan Nihaz | Performance & Growth Marketing</title>
+  <meta name="description" content="Orvante Studio — Performance and growth marketing portfolio for Tamgid Hasan Nihaz. Strict monochrome editorial layout.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------------------
+       SCALE ENGINE
+       Desktop: u = min(100vw / 1440, 1.333px)
+       Phone (<= 760px): u = 100vw / 390
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --u: min(calc(100vw / 1440), 1.333333px);
+      --font-ui: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Archivo', sans-serif;
+      --bg-hero: #dadada;
+      --ink-hero: #111111;
+      --bg-dark: #000000;
+      --text-light: #f4f4f4;
+      --statement-grey: #6f6f6f;
+      --hairline: rgba(255, 255, 255, 0.14);
+      --hairline-strong: rgba(255, 255, 255, 0.28);
+      --glass-bg: rgba(18, 18, 18, 0.76);
+      --card-dark: #262626;
+      --card-light: #d6d6d6;
+      --stat-frame-bg: #cdcdcd;
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --u: calc(100vw / 390);
+      }
+    }
+
+    html {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: var(--font-ui);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      background-color: var(--bg-dark);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating Mode Switcher */
+    .view-mode-pill {
+      position: fixed;
+      bottom: calc(20 * var(--u));
+      right: calc(20 * var(--u));
+      z-index: 1000;
+      background: rgba(14, 14, 14, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 9999px;
+      padding: calc(4 * var(--u));
+      display: flex;
+      align-items: center;
+      gap: calc(4 * var(--u));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: var(--font-ui);
+      font-size: calc(12 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: calc(7 * var(--u)) calc(13 * var(--u));
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .mode-btn.active {
+      background: #ffffff;
+      color: #111111;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 1: HERO (1440 × 938u)
+       ------------------------------------------------------------- */
+    .hero-wrapper {
+      width: 100%;
+      background-color: var(--bg-hero);
+      display: flex;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-artboard {
+      width: 100%;
+      max-width: calc(1440 * var(--u));
+      height: calc(938 * var(--u));
+      position: relative;
+      background-color: var(--bg-hero);
+      color: var(--ink-hero);
+      overflow: hidden;
+    }
+
+    /* Nav: at (57, 61), white segmented pill 48u tall */
+    .hero-nav {
+      position: absolute;
+      left: calc(57 * var(--u));
+      top: calc(61 * var(--u));
+      height: calc(48 * var(--u));
+      z-index: 20;
+    }
+
+    .nav-pill {
+      height: calc(48 * var(--u));
+      background: #ffffff;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      padding: calc(4 * var(--u));
+      position: relative;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+      user-select: none;
+    }
+
+    .nav-pill-slider {
+      position: absolute;
+      top: calc(4 * var(--u));
+      bottom: calc(4 * var(--u));
+      left: calc(4 * var(--u));
+      width: calc(74 * var(--u));
+      background: #111111;
+      border-radius: 9999px;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .nav-link {
+      position: relative;
+      z-index: 2;
+      font-family: var(--font-ui);
+      font-size: calc(14 * var(--u));
+      font-weight: 500;
+      color: #111111;
+      text-decoration: none;
+      padding: 0 calc(18 * var(--u));
+      height: calc(40 * var(--u));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link.active {
+      color: #ffffff;
+    }
+
+    .nav-link.hovered {
+      color: #ffffff;
+    }
+
+    /* Date at (1038, 70) */
+    .hero-date {
+      position: absolute;
+      left: calc(1038 * var(--u));
+      top: calc(70 * var(--u));
+      font-family: var(--font-ui);
+      font-size: calc(13 * var(--u));
+      font-weight: 500;
+      color: #444444;
+      white-space: nowrap;
+      z-index: 20;
+    }
+
+    /* Contact Us button at (1237, 63, 144 × 46u) */
+    .hero-contact-btn {
+      position: absolute;
+      left: calc(1237 * var(--u));
+      top: calc(63 * var(--u));
+      width: calc(144 * var(--u));
+      height: calc(46 * var(--u));
+      background: #111111;
+      color: #ffffff;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: calc(6 * var(--u));
+      font-family: var(--font-ui);
+      font-size: calc(14 * var(--u));
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      z-index: 20;
+      transition: transform 0.2s ease, background 0.2s ease;
+      border: none;
+    }
+
+    .hero-contact-btn:hover {
+      transform: translateY(-1px);
+      background: #000000;
+    }
+
+    /* Title: PURE / DESIGN at (57, 246) */
+    .hero-title-group {
+      position: absolute;
+      left: calc(57 * var(--u));
+      top: calc(246 * var(--u));
+      z-index: 10;
+    }
+
+    .hero-title-mask {
+      overflow: hidden;
+      display: block;
+    }
+
+    .hero-title-text {
+      font-family: var(--font-display);
+      font-size: calc(90 * var(--u));
+      line-height: 0.86;
+      letter-spacing: -0.06em;
+      font-weight: 640;
+      font-variation-settings: 'wdth' 104, 'wght' 640;
+      color: #111111;
+      display: block;
+      transform: translateY(0);
+      opacity: 1;
+      will-change: transform;
+    }
+
+    .hero-title-year {
+      position: absolute;
+      left: calc(339 * var(--u));
+      top: calc(272 * var(--u));
+      font-family: var(--font-ui);
+      font-size: calc(16 * var(--u));
+      font-weight: 500;
+      color: #555555;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    /* About at y 458: ● (ABOUT) + 14u copy */
+    .hero-about {
+      position: absolute;
+      left: calc(57 * var(--u));
+      top: calc(458 * var(--u));
+      width: calc(260 * var(--u));
+      z-index: 10;
+    }
+
+    .about-label {
+      font-family: var(--font-ui);
+      font-size: calc(13 * var(--u));
+      font-weight: 600;
+      color: #111111;
+      display: flex;
+      align-items: center;
+      gap: calc(6 * var(--u));
+      margin-bottom: calc(12 * var(--u));
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .about-bullet {
+      font-size: calc(8 * var(--u));
+      line-height: 1;
+      color: #111111;
+    }
+
+    .about-copy {
+      font-family: var(--font-ui);
+      font-size: calc(14 * var(--u));
+      line-height: 1.45;
+      font-weight: 400;
+      color: #222222;
+    }
+
+    /* Book A Call at y 584 */
+    .hero-book-btn {
+      position: absolute;
+      left: calc(57 * var(--u));
+      top: calc(584 * var(--u));
+      background: #111111;
+      color: #ffffff;
+      padding: calc(12 * var(--u)) calc(22 * var(--u));
+      border-radius: 9999px;
+      font-family: var(--font-ui);
+      font-size: calc(14 * var(--u));
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: calc(6 * var(--u));
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.2s ease, background 0.2s ease;
+      border: none;
+    }
+
+    .hero-book-btn:hover {
+      transform: translateY(-1px);
+      background: #000000;
+    }
+
+    /* Hero Photo at (338, -86, 764 × 1024u) */
+    .hero-photo-container {
+      position: absolute;
+      left: calc(338 * var(--u));
+      top: calc(-86 * var(--u));
+      width: calc(764 * var(--u));
+      height: calc(1024 * var(--u));
+      overflow: hidden;
+      z-index: 2;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      will-change: transform, filter, opacity;
+    }
+
+    .hero-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Brand Plate over man's back at (532, 444, 364 × 73u) */
+    .hero-brand-plate {
+      position: absolute;
+      left: calc(532 * var(--u));
+      top: calc(444 * var(--u));
+      width: calc(364 * var(--u));
+      height: calc(73 * var(--u));
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: calc(14 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 calc(24 * var(--u));
+      color: #ffffff;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      z-index: 6;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-brand-plate:hover {
+      border-color: rgba(255, 255, 255, 0.32);
+      transform: translateY(-1px);
+    }
+
+    .brand-plate-mark {
+      width: calc(24 * var(--u));
+      height: calc(24 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-plate-title {
+      font-family: var(--font-display);
+      font-size: calc(25 * var(--u));
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-variation-settings: 'wdth' 125, 'wght' 700;
+      color: #ffffff;
+    }
+
+    .brand-plate-menu {
+      width: calc(22 * var(--u));
+      height: calc(12 * var(--u));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .brand-plate-menu span {
+      display: block;
+      width: 100%;
+      height: calc(2 * var(--u));
+      background-color: #ffffff;
+      border-radius: 1px;
+    }
+
+    /* Wordmarks across jacket at y 864 */
+    .hero-logos-row {
+      position: absolute;
+      left: calc(520 * var(--u));
+      top: calc(864 * var(--u));
+      width: calc(388 * var(--u));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-ui);
+      font-size: calc(13 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.85);
+      text-transform: uppercase;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    /* True Growth Pill at (1216, 258) */
+    .hero-true-growth {
+      position: absolute;
+      left: calc(1216 * var(--u));
+      top: calc(258 * var(--u));
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 9999px;
+      padding: calc(6 * var(--u)) calc(14 * var(--u));
+      display: flex;
+      align-items: center;
+      gap: calc(8 * var(--u));
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .true-growth-disc {
+      width: calc(18 * var(--u));
+      height: calc(18 * var(--u));
+      background: #111111;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: calc(10 * var(--u));
+    }
+
+    .true-growth-text {
+      font-family: var(--font-ui);
+      font-size: calc(13 * var(--u));
+      font-weight: 600;
+      color: #111111;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    /* Available for you at y 442 */
+    .hero-available {
+      position: absolute;
+      left: calc(1216 * var(--u));
+      top: calc(442 * var(--u));
+      width: calc(165 * var(--u));
+      text-align: right;
+      font-family: var(--font-ui);
+      font-size: calc(14 * var(--u));
+      font-weight: 500;
+      line-height: 1.35;
+      color: #222222;
+      z-index: 10;
+    }
+
+    .available-dot {
+      color: #10b981;
+      display: inline-block;
+      margin-right: calc(4 * var(--u));
+    }
+
+    /* Stats Frame at (57, 693, 341 × 208u, light grey #cdcdcd) */
+    .hero-stats-frame {
+      position: absolute;
+      left: calc(57 * var(--u));
+      top: calc(693 * var(--u));
+      width: calc(341 * var(--u));
+      height: calc(208 * var(--u));
+      background-color: var(--stat-frame-bg);
+      border-radius: calc(12 * var(--u));
+      padding: calc(8 * var(--u));
+      display: flex;
+      gap: calc(8 * var(--u));
+      z-index: 10;
+    }
+
+    .stats-card-dark {
+      flex: 1;
+      background: #181818;
+      border-radius: calc(8 * var(--u));
+      padding: calc(12 * var(--u));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .stats-counter-label {
+      font-family: var(--font-display);
+      font-size: calc(24 * var(--u));
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .stats-sub-label {
+      font-family: var(--font-ui);
+      font-size: calc(11 * var(--u));
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: calc(2 * var(--u));
+    }
+
+    .partner-marks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: calc(6 * var(--u)) calc(4 * var(--u));
+      margin: calc(10 * var(--u)) 0;
+    }
+
+    .partner-mark {
+      font-family: var(--font-ui);
+      font-size: calc(9 * var(--u));
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+      display: flex;
+      align-items: center;
+      gap: calc(3 * var(--u));
+      letter-spacing: 0.02em;
+    }
+
+    .partner-mark svg {
+      width: calc(10 * var(--u));
+      height: calc(10 * var(--u));
+      fill: currentColor;
+    }
+
+    .stats-book-bar {
+      background: #ffffff;
+      color: #111111;
+      border-radius: calc(4 * var(--u));
+      padding: calc(6 * var(--u)) 0;
+      font-family: var(--font-ui);
+      font-size: calc(11 * var(--u));
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .stats-book-bar:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+
+    .stats-card-photo {
+      flex: 1;
+      border-radius: calc(8 * var(--u));
+      position: relative;
+      overflow: hidden;
+      background: #111111;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: calc(12 * var(--u));
+    }
+
+    .stats-card-photo-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.82;
+      z-index: 1;
+    }
+
+    .stats-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.75) 100%);
+      z-index: 2;
+    }
+
+    .stats-photo-top {
+      position: relative;
+      z-index: 3;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: calc(6 * var(--u));
+      font-family: var(--font-ui);
+      font-size: calc(10 * var(--u));
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .stats-photo-bottom {
+      position: relative;
+      z-index: 3;
+      text-align: right;
+    }
+
+    .stats-photo-counter {
+      font-family: var(--font-display);
+      font-size: calc(24 * var(--u));
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .stats-photo-desc {
+      font-family: var(--font-ui);
+      font-size: calc(10 * var(--u));
+      line-height: 1.25;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: calc(2 * var(--u));
+    }
+
+    /* Out Now / Q Industrial Card at (1174, 515, 196u tall) */
+    .hero-out-now {
+      position: absolute;
+      left: calc(1174 * var(--u));
+      top: calc(515 * var(--u));
+      width: calc(210 * var(--u));
+      z-index: 10;
+    }
+
+    .out-now-header {
+      font-family: var(--font-ui);
+      font-size: calc(11 * var(--u));
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: calc(8 * var(--u));
+      letter-spacing: 0.03em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .out-now-card {
+      width: 100%;
+      height: calc(196 * var(--u));
+      border-radius: calc(10 * var(--u));
+      position: relative;
+      overflow: hidden;
+      background: #111111;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+      cursor: pointer;
+    }
+
+    .out-now-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.55);
+      transform-origin: 62% 45%;
+      transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: block;
+    }
+
+    .out-now-card:hover .out-now-img {
+      transform: scale(1.68);
+    }
+
+    .out-now-arrow-btn {
+      position: absolute;
+      right: calc(12 * var(--u));
+      bottom: calc(14 * var(--u));
+      width: calc(36 * var(--u));
+      height: calc(36 * var(--u));
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111111;
+      font-size: calc(14 * var(--u));
+      transition: transform 0.35s ease, background 0.2s ease;
+      z-index: 2;
+    }
+
+    .out-now-card:hover .out-now-arrow-btn {
+      transform: rotate(45deg);
+      background: #ffffff;
+    }
+
+    .out-now-progress-track {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: calc(2 * var(--u));
+      background: rgba(255, 255, 255, 0.35);
+      z-index: 3;
+    }
+
+    .out-now-progress-fill {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      will-change: width;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 2: BAR & STATEMENT
+       Bar: 111u tall, Statement: 170u top / 230u bottom padding
+       ------------------------------------------------------------- */
+    .bar-section {
+      width: 100%;
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--hairline);
+      position: relative;
+      z-index: 10;
+    }
+
+    .bar-container {
+      width: 100%;
+      max-width: calc(1440 * var(--u));
+      height: calc(111 * var(--u));
+      margin: 0 auto;
+      padding: 0 calc(57 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .bar-left {
+      font-family: var(--font-display);
+      font-size: calc(14 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-variation-settings: 'wdth' 115, 'wght' 600;
+      display: flex;
+      align-items: center;
+      gap: calc(6 * var(--u));
+    }
+
+    .bar-year-grey {
+      color: var(--statement-grey);
+    }
+
+    .bar-center {
+      font-family: var(--font-display);
+      font-size: calc(14 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-variation-settings: 'wdth' 115, 'wght' 600;
+      display: flex;
+      align-items: center;
+      gap: calc(10 * var(--u));
+      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
+      transition: opacity 0.2s ease;
+    }
+
+    .bar-center:hover {
+      opacity: 0.8;
+    }
+
+    .bar-arrow-circle {
+      width: calc(28 * var(--u));
+      height: calc(28 * var(--u));
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(12 * var(--u));
+      transition: transform 0.3s ease;
+    }
+
+    .bar-center:hover .bar-arrow-circle {
+      transform: translateY(2px);
+    }
+
+    .bar-right {
+      font-family: var(--font-display);
+      font-size: calc(14 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--statement-grey);
+      font-variation-settings: 'wdth' 115, 'wght' 600;
+    }
+
+    /* Statement Section */
+    .statement-section {
+      width: 100%;
+      background: var(--bg-dark);
+      padding: calc(170 * var(--u)) 0 calc(230 * var(--u));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .statement-content {
+      width: 100%;
+      max-width: calc(830 * var(--u));
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 calc(10 * var(--u));
+    }
+
+    .statement-quote {
+      font-family: var(--font-display);
+      font-size: calc(52 * var(--u));
+      line-height: 1.33;
+      letter-spacing: -0.028em;
+      font-weight: 500;
+      font-variation-settings: 'wdth' 100, 'wght' 500;
+      text-align: center;
+    }
+
+    .stmt-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .stmt-word {
+      color: var(--statement-grey);
+      display: inline-block;
+      white-space: pre-wrap;
+      transition: color 0.1s linear;
+      will-change: color;
+    }
+
+    .statement-sub {
+      margin-top: calc(150 * var(--u));
+      font-family: var(--font-ui);
+      font-size: calc(23 * var(--u));
+      line-height: 1.4;
+      font-weight: 400;
+      color: #f4f4f4;
+      text-align: center;
+      max-width: calc(720 * var(--u));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .statement-sub .sub-grey {
+      color: var(--statement-grey);
+      font-style: italic;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION 3: TRUST PANEL
+       1302 × 429u, 1px border white 28%, 14u radius, ends with 150u padding
+       ------------------------------------------------------------- */
+    .trust-section {
+      width: 100%;
+      background: var(--bg-dark);
+      padding-bottom: calc(150 * var(--u));
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .trust-panel {
+      width: calc(1302 * var(--u));
+      height: calc(429 * var(--u));
+      border: 1px solid var(--hairline-strong);
+      border-radius: calc(14 * var(--u));
+      background: rgba(255, 255, 255, 0.02);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 calc(48 * var(--u));
+    }
+
+    .trust-left {
+      position: relative;
+      z-index: 5;
+      max-width: calc(460 * var(--u));
+    }
+
+    .trust-heading {
+      font-family: var(--font-ui);
+      font-size: calc(55 * var(--u));
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-light);
+      position: relative;
+    }
+
+    .trust-heading-line {
+      display: block;
+      position: relative;
+    }
+
+    .trust-desc {
+      font-family: var(--font-ui);
+      font-size: calc(14.5 * var(--u));
+      line-height: 1.5;
+      font-weight: 400;
+      color: rgba(244, 244, 244, 0.65);
+      margin-top: calc(24 * var(--u));
+      max-width: calc(380 * var(--u));
+    }
+
+    /* Overlapping Frosted Glass Icon Tiles (88u, 12u radius, backdrop blur) */
+    .glass-tile {
+      position: absolute;
+      width: calc(88 * var(--u));
+      height: calc(88 * var(--u));
+      border-radius: calc(12 * var(--u));
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .glass-tile-asterisk {
+      top: calc(-18 * var(--u));
+      left: calc(260 * var(--u));
+    }
+
+    .glass-tile-four-dots {
+      top: calc(148 * var(--u));
+      left: calc(230 * var(--u));
+    }
+
+    .tile-glyph {
+      width: calc(36 * var(--u));
+      height: calc(36 * var(--u));
+      fill: #ffffff;
+      color: #ffffff;
+    }
+
+    /* Right Cards Row (326u tall, 8u radius) */
+    .trust-cards-row {
+      display: flex;
+      align-items: center;
+      gap: calc(18 * var(--u));
+      height: calc(326 * var(--u));
+      z-index: 5;
+      position: relative;
+    }
+
+    .trust-card {
+      height: calc(326 * var(--u));
+      border-radius: calc(8 * var(--u));
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+    }
+
+    .trust-card:hover {
+      transform: translateY(calc(-6 * var(--u)));
+    }
+
+    /* Avatar Card (light grey #d6d6d6, 293u) */
+    .card-avatar {
+      width: calc(293 * var(--u));
+      background-color: var(--card-light);
+      color: #111111;
+      padding: calc(24 * var(--u));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, calc(48 * var(--u)));
+      grid-template-rows: repeat(2, calc(48 * var(--u)));
+      gap: calc(10 * var(--u));
+    }
+
+    .avatar-img-wrap {
+      width: calc(48 * var(--u));
+      height: calc(48 * var(--u));
+      border-radius: 50%;
+      overflow: hidden;
+      background: #aaaaaa;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      will-change: transform, opacity;
+    }
+
+    .avatar-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-card-footer {
+      margin-top: calc(14 * var(--u));
+    }
+
+    .avatar-card-metric {
+      font-family: var(--font-display);
+      font-size: calc(43 * var(--u));
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #111111;
+    }
+
+    .avatar-card-caption {
+      font-family: var(--font-ui);
+      font-size: calc(13 * var(--u));
+      font-weight: 500;
+      color: #444444;
+      margin-top: calc(2 * var(--u));
+    }
+
+    /* Awards Card (#262626, 298u) */
+    .card-awards {
+      width: calc(298 * var(--u));
+      background-color: var(--card-dark);
+      color: var(--text-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: calc(24 * var(--u));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .awards-metric-title {
+      font-family: var(--font-display);
+      font-size: calc(38 * var(--u));
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .awards-sub-label {
+      font-family: var(--font-ui);
+      font-size: calc(13 * var(--u));
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 500;
+    }
+
+    .awards-laurel-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: calc(12 * var(--u)) 0;
+    }
+
+    .awards-laurel-svg {
+      width: calc(80 * var(--u));
+      height: calc(44 * var(--u));
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+    }
+
+    .awards-badge-text {
+      font-family: var(--font-display);
+      font-size: calc(10 * var(--u));
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-top: calc(6 * var(--u));
+    }
+
+    .awards-card-note {
+      font-family: var(--font-ui);
+      font-size: calc(12.5 * var(--u));
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Portrait Card (200u, cut off by right edge) */
+    .card-portrait {
+      width: calc(200 * var(--u));
+      background-color: #1a1a1a;
+      overflow: hidden;
+      margin-right: calc(-60 * var(--u));
+    }
+
+    .card-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .card-portrait:hover .card-portrait-img {
+      filter: grayscale(0%);
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE RESUME & CONTACT MODAL
+       ------------------------------------------------------------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: calc(20 * var(--u));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .resume-modal {
+      width: 100%;
+      max-width: calc(880 * var(--u));
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: calc(16 * var(--u));
+      padding: calc(40 * var(--u));
+      color: #f4f4f4;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: calc(24 * var(--u));
+      right: calc(24 * var(--u));
+      width: calc(36 * var(--u));
+      height: calc(36 * var(--u));
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: calc(18 * var(--u));
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .resume-header {
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: calc(24 * var(--u));
+      margin-bottom: calc(28 * var(--u));
+    }
+
+    .resume-name {
+      font-family: var(--font-display);
+      font-size: calc(36 * var(--u));
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .resume-role {
+      font-family: var(--font-ui);
+      font-size: calc(16 * var(--u));
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: calc(4 * var(--u));
+    }
+
+    .resume-contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(16 * var(--u));
+      margin-top: calc(14 * var(--u));
+      font-size: calc(13 * var(--u));
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .resume-contact-bar a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .resume-section-title {
+      font-family: var(--font-display);
+      font-size: calc(18 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-top: calc(24 * var(--u));
+      margin-bottom: calc(12 * var(--u));
+      display: flex;
+      align-items: center;
+      gap: calc(8 * var(--u));
+    }
+
+    .resume-experience-item {
+      margin-bottom: calc(20 * var(--u));
+    }
+
+    .exp-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: calc(15 * var(--u));
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .exp-period {
+      font-size: calc(12.5 * var(--u));
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .exp-company {
+      font-size: calc(13.5 * var(--u));
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: calc(8 * var(--u));
+    }
+
+    .resume-bullets {
+      list-style-type: disc;
+      padding-left: calc(20 * var(--u));
+      font-size: calc(13.5 * var(--u));
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .skills-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(8 * var(--u));
+    }
+
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: calc(6 * var(--u));
+      padding: calc(6 * var(--u)) calc(12 * var(--u));
+      font-size: calc(12 * var(--u));
+      color: #ffffff;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: calc(12 * var(--u));
+      margin-top: calc(30 * var(--u));
+      padding-top: calc(20 * var(--u));
+      border-top: 1px solid var(--hairline);
+    }
+
+    .download-pdf-btn {
+      background: #ffffff;
+      color: #111111;
+      padding: calc(12 * var(--u)) calc(24 * var(--u));
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: calc(13 * var(--u));
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: calc(6 * var(--u));
+      transition: background 0.2s ease;
+    }
+
+    .download-pdf-btn:hover {
+      background: #e0e0e0;
+    }
+
+    /* -------------------------------------------------------------
+       PHONE RESPONSIVE (≤ 760px)
+       u = 100vw / 390
+       1. Nav pill on left, Contact Us becomes 40u square button on right
+       2. Title ("PURE DESIGN"), (ABOUT) copy, Book A Call
+       3. Full-width photo (470u) with brand plate & logos over it
+       4. True Growth, stats frame (two columns), Out Now
+       5. Statement (28u)
+       6. Trust panel: stacks, second tile hidden
+       ------------------------------------------------------------- */
+    @media (max-width: 760px) {
+      .hero-artboard {
+        height: auto;
+        padding: calc(20 * var(--u)) calc(20 * var(--u)) calc(40 * var(--u));
+        display: block;
+        overflow: visible;
+      }
+
+      /* 1. Nav & Contact Bar on Mobile */
+      .hero-nav {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .nav-pill {
+        height: calc(42 * var(--u));
+        padding: calc(3 * var(--u));
+      }
+
+      .nav-link {
+        font-size: calc(12 * var(--u));
+        padding: 0 calc(11 * var(--u));
+        height: calc(36 * var(--u));
+      }
+
+      .hero-date {
+        display: none;
+      }
+
+      .hero-contact-btn {
+        position: absolute;
+        left: auto;
+        right: calc(20 * var(--u));
+        top: calc(20 * var(--u));
+        width: calc(40 * var(--u));
+        height: calc(40 * var(--u));
+        border-radius: 50%;
+        padding: 0;
+      }
+
+      .hero-contact-btn span {
+        display: none;
+      }
+
+      .hero-contact-btn::after {
+        content: '↗';
+        font-size: calc(18 * var(--u));
+      }
+
+      /* 2. Title, (ABOUT) copy, Book A Call */
+      .hero-title-group {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-top: calc(32 * var(--u));
+      }
+
+      .hero-title-text {
+        font-size: calc(56 * var(--u));
+        line-height: 0.9;
+      }
+
+      .hero-title-year {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-top: calc(8 * var(--u));
+        display: block;
+      }
+
+      .hero-about {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin-top: calc(24 * var(--u));
+      }
+
+      .hero-book-btn {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-top: calc(16 * var(--u));
+        display: inline-flex;
+      }
+
+      /* 3. Full-width photo (470u) with brand plate and logos over it */
+      .hero-photo-container {
+        position: relative;
+        left: calc(-20 * var(--u));
+        top: 0;
+        width: calc(100% + calc(40 * var(--u)));
+        height: calc(470 * var(--u));
+        margin-top: calc(32 * var(--u));
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .hero-brand-plate {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(320 * var(--u));
+        height: calc(64 * var(--u));
+        z-index: 10;
+      }
+
+      .hero-logos-row {
+        position: absolute;
+        left: 50%;
+        bottom: calc(24 * var(--u));
+        top: auto;
+        transform: translateX(-50%);
+        width: calc(320 * var(--u));
+        z-index: 10;
+      }
+
+      /* 4. True Growth, stats frame (two columns), Out Now */
+      .hero-true-growth {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-top: calc(24 * var(--u));
+        display: inline-flex;
+      }
+
+      .hero-available {
+        display: none;
+      }
+
+      .hero-stats-frame {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin-top: calc(20 * var(--u));
+        display: flex;
+        flex-direction: row;
+        gap: calc(8 * var(--u));
+      }
+
+      .hero-out-now {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin-top: calc(20 * var(--u));
+      }
+
+      /* Bar Section on Phone */
+      .bar-container {
+        padding: 0 calc(20 * var(--u));
+        height: calc(80 * var(--u));
+      }
+
+      .bar-right {
+        display: none;
+      }
+
+      /* Statement Section on Phone (28u) */
+      .statement-section {
+        padding: calc(80 * var(--u)) calc(20 * var(--u)) calc(100 * var(--u));
+      }
+
+      .statement-quote {
+        font-size: calc(28 * var(--u));
+        line-height: 1.4;
+      }
+
+      .stmt-line {
+        display: inline;
+        white-space: normal;
+      }
+
+      .statement-sub {
+        margin-top: calc(60 * var(--u));
+        font-size: calc(16 * var(--u));
+      }
+
+      /* Trust Panel on Phone */
+      .trust-section {
+        padding: 0 calc(20 * var(--u)) calc(80 * var(--u));
+      }
+
+      .trust-panel {
+        width: 100%;
+        height: auto;
+        padding: calc(32 * var(--u)) calc(20 * var(--u));
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(32 * var(--u));
+      }
+
+      .trust-heading {
+        font-size: calc(36 * var(--u));
+      }
+
+      .glass-tile-asterisk {
+        top: calc(-10 * var(--u));
+        left: calc(180 * var(--u));
+        width: calc(60 * var(--u));
+        height: calc(60 * var(--u));
+      }
+
+      .glass-tile-four-dots {
+        display: none !important;
+      }
+
+      .trust-cards-row {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        gap: calc(16 * var(--u));
+      }
+
+      .card-avatar,
+      .card-awards,
+      .card-portrait {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+      }
+
+      .card-portrait {
+        height: calc(240 * var(--u));
+      }
+
+      .avatar-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .view-mode-pill {
+        transform: scale(0.85);
+        transform-origin: bottom right;
+        bottom: calc(12 * var(--u));
+        right: calc(12 * var(--u));
+      }
+    }
+
+    /* -------------------------------------------------------------
+       MOTION & REDUCED MOTION SUPPORT
+       ------------------------------------------------------------- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .stmt-word {
+        color: var(--text-light) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Mode Switcher (Tamgid Nihaz Portfolio vs Pure Orvante Spec) -->
+  <aside class="view-mode-pill" aria-label="View Mode Switcher">
+    <button type="button" class="mode-btn active" id="btnModeNihaz" onclick="setMode('nihaz')">Tamgid Nihaz</button>
+    <button type="button" class="mode-btn" id="btnModeOrvante" onclick="setMode('orvante')">Orvante Spec</button>
+  </aside>
+
+  <!-- ============================================================
+       SECTION 1: HERO (1440 × 938u)
+       ============================================================ -->
+  <section class="hero-wrapper" id="heroSection">
+    <div class="hero-artboard">
+      
+      <!-- 1. Top Navigation (57, 61) -->
+      <nav class="hero-nav" aria-label="Main Navigation">
+        <div class="nav-pill" id="navPill">
+          <div class="nav-pill-slider" id="navPillSlider"></div>
+          <a href="#heroSection" class="nav-link active" data-index="0">Home</a>
+          <a href="#statementSection" class="nav-link" data-index="1">Studio</a>
+          <a href="#trustSection" class="nav-link" data-index="2">Works</a>
+          <a href="javascript:void(0)" class="nav-link" data-index="3" onclick="openResumeModal()">Blog</a>
+        </div>
+      </nav>
+
+      <!-- Date (1038, 70) & Contact Us Button (1237, 63) -->
+      <div class="hero-date" id="heroDate">Sunday / 17.06 – 27 June 2026</div>
+      <button type="button" class="hero-contact-btn" onclick="openResumeModal()" aria-label="Contact Us">
+        <span>Contact Us</span> ↗
+      </button>
+
+      <!-- 2. Title: PURE / DESIGN ('25) at (57, 246) -->
+      <div class="hero-title-group">
+        <span class="hero-title-mask">
+          <span class="hero-title-text" id="heroTitleLine1">PURE</span>
+        </span>
+        <span class="hero-title-mask">
+          <span class="hero-title-text" id="heroTitleLine2">GROWTH</span>
+        </span>
+      </div>
+      <div class="hero-title-year" id="heroTitleYear">(’25) • TAMGID NIHAZ</div>
+
+      <!-- 3. About at y 458: ● (ABOUT) + 14u copy -->
+      <div class="hero-about">
+        <div class="about-label">
+          <span class="about-bullet">●</span> (ABOUT)
+        </div>
+        <p class="about-copy" id="heroAboutCopy">
+          Results-driven performance marketing manager scaling Meta funnels, lead generation pipelines, and brand revenue.
+        </p>
+      </div>
+
+      <!-- 4. Book A Call Button at y 584 -->
+      <button type="button" class="hero-book-btn" onclick="openResumeModal()">
+        Book A Call ↗
+      </button>
+
+      <!-- 5. Hero Photo at (338, -86, 764 × 1024u) with Brand Plate & Logos -->
+      <div class="hero-photo-container" id="heroPhotoContainer">
+        <img 
+          src="assets/hero-photo.webp" 
+          onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/7dc8b8f3-4ccb-4599-8ce4-7f7c7881bad9.webp'"
+          alt="Monochrome Studio Photo" 
+          class="hero-photo-img" 
+          id="heroPhotoImg"
+        >
+
+        <!-- Brand Plate over the man's back at (532, 444, 364 × 73u) -->
+        <div class="hero-brand-plate" onclick="openResumeModal()" title="View Portfolio & Profile">
+          <div class="brand-plate-mark">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="4,20 12,4 12,20" fill="#ffffff" />
+              <polygon points="14,20 14,4 20,20" fill="rgba(255,255,255,0.45)" />
+            </svg>
+          </div>
+          <div class="brand-plate-title" id="brandPlateTitle">NIHAZ</div>
+          <div class="brand-plate-menu">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Wordmarks across jacket at y 864 -->
+        <div class="hero-logos-row" id="heroLogosRow">
+          <span>Hangeul</span>
+          <span>·</span>
+          <span>Korean Expo</span>
+          <span>·</span>
+          <span>Lead Academy</span>
+        </div>
+      </div>
+
+      <!-- 6. Right Column: True Growth Pill (1216, 258) -->
+      <div class="hero-true-growth">
+        <div class="true-growth-disc">✓</div>
+        <div class="true-growth-text">True Growth</div>
+      </div>
+
+      <!-- Right Column: We're available ● for you at y 442 -->
+      <div class="hero-available">
+        We’re available<br><span class="available-dot">●</span> for you
+      </div>
+
+      <!-- 7. Stats Frame at (57, 693, 341 × 208u, two columns) -->
+      <div class="hero-stats-frame">
+        <!-- Dark Card -->
+        <div class="stats-card-dark">
+          <div>
+            <div class="stats-counter-label" id="counter400">500+</div>
+            <div class="stats-sub-label" id="label400">Qualified Monthly Leads</div>
+          </div>
+          <div class="partner-marks-grid">
+            <div class="partner-mark">
+              <svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4"/></svg> Halcyon
+            </div>
+            <div class="partner-mark">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8"/></svg> Ostra
+            </div>
+            <div class="partner-mark">
+              <svg viewBox="0 0 10 10"><polygon points="5,1 9,9 1,9"/></svg> Fenwick
+            </div>
+            <div class="partner-mark">
+              <svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" stroke="#fff" fill="none"/></svg> Monolo
+            </div>
+            <div class="partner-mark">
+              <svg viewBox="0 0 10 10"><polygon points="5,1 9,5 5,9 1,5"/></svg> Kitefly
+            </div>
+            <div class="partner-mark">
+              <svg viewBox="0 0 10 10"><path d="M5,1 L9,9 L5,7 L1,9 Z"/></svg> Arbor
+            </div>
+          </div>
+          <div class="stats-book-bar" onclick="openResumeModal()">
+            Book a call ↗
+          </div>
+        </div>
+
+        <!-- Photo Card (Cap photo) -->
+        <div class="stats-card-photo">
+          <img 
+            src="assets/card-230.webp" 
+            onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/a9d3641f-d629-46e5-8d2d-5f75386b803d.webp'"
+            alt="Studio Feed" 
+            class="stats-card-photo-bg"
+          >
+          <div class="stats-photo-overlay"></div>
+          <div class="stats-photo-top" id="photoCardTop">Campaign Feed · 2024/25</div>
+          <div class="stats-photo-bottom">
+            <div class="stats-photo-counter" id="counter230">50%+</div>
+            <div class="stats-photo-desc" id="photoCardDesc">Company Revenue Growth & 30% Sales Spike</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Out Now / Q Industrial Card at (1174, 515) -->
+      <div class="hero-out-now">
+        <div class="out-now-header">
+          <span id="outNowLabel">Case / Korean Expo</span>
+          <span>[2025]</span>
+        </div>
+        <div class="out-now-card" onclick="openResumeModal()">
+          <img 
+            src="assets/card-q-industrial.webp" 
+            onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/9340eb08-877d-4d08-91fb-b70754541d98.webp'"
+            alt="Case Study" 
+            class="out-now-img" 
+            id="outNowImg"
+          >
+          <div class="out-now-arrow-btn">↗</div>
+          <div class="out-now-progress-track">
+            <div class="out-now-progress-fill" id="outNowProgress"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: BAR & STATEMENT
+       Bar: 111u, Statement: 170u top / 230u bottom padding
+       ============================================================ -->
+  <section class="bar-section" aria-label="Agency Status Bar">
+    <div class="bar-container">
+      <div class="bar-left">
+        EST <span class="bar-year-grey" id="barYear">2021</span>
+      </div>
+      <a href="#statementSection" class="bar-center">
+        <span>SCROLL DOWN</span>
+        <div class="bar-arrow-circle">↓</div>
+      </a>
+      <div class="bar-right" id="barTagline">
+        PERFORMANCE IN DETAILS
+      </div>
+    </div>
+  </section>
+
+  <!-- Statement Section with Word-by-Word Scroll Fill (5 lines) -->
+  <section class="statement-section" id="statementSection" aria-label="Design Statement">
+    <div class="statement-content">
+      <h2 class="statement-quote" id="statementQuote">
+        <span class="stmt-line"><span class="stmt-word">We</span> <span class="stmt-word">believe</span> <span class="stmt-word">the</span> <span class="stmt-word">strongest</span> <span class="stmt-word">brands</span> <span class="stmt-word">are</span></span>
+        <span class="stmt-line"><span class="stmt-word">built</span> <span class="stmt-word">through</span> <span class="stmt-word">strategy,</span> <span class="stmt-word">not</span> <span class="stmt-word">just</span></span>
+        <span class="stmt-line"><span class="stmt-word">aesthetics.</span> <span class="stmt-word">Every</span> <span class="stmt-word">campaign</span> <span class="stmt-word">is</span> <span class="stmt-word">designed</span></span>
+        <span class="stmt-line"><span class="stmt-word">to</span> <span class="stmt-word">capture</span> <span class="stmt-word">attention,</span> <span class="stmt-word">inspire</span> <span class="stmt-word">action,</span> <span class="stmt-word">and</span></span>
+        <span class="stmt-line"><span class="stmt-word">create</span> <span class="stmt-word">lasting</span> <span class="stmt-word">business</span> <span class="stmt-word">growth.</span></span>
+      </h2>
+
+      <!-- Sub-line: 150u below statement, 23u font size -->
+      <p class="statement-sub" id="statementSub">
+        Performance-driven marketing, from<br>
+        strategy to execution. <span class="sub-grey">Built for growing brands.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: TRUST PANEL
+       1302 × 429u, 1px border white 28%, 14u radius, 150u bottom pad
+       ============================================================ -->
+  <section class="trust-section" id="trustSection" aria-label="Trusted By Section">
+    <div class="trust-panel" id="trustPanel">
+      
+      <!-- Left Heading & Paragraph with Frosted Glass Tiles -->
+      <div class="trust-left">
+        <!-- Asterisk glass tile (88u, 12u radius) top right of line 1 -->
+        <div class="glass-tile glass-tile-asterisk">
+          <svg class="tile-glyph" viewBox="0 0 24 24">
+            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- Four-dot glass tile (88u, 12u radius) over 'Businesses' -->
+        <div class="glass-tile glass-tile-four-dots">
+          <svg class="tile-glyph" viewBox="0 0 24 24">
+            <circle cx="7" cy="7" r="2.5"/>
+            <circle cx="17" cy="7" r="2.5"/>
+            <circle cx="7" cy="17" r="2.5"/>
+            <circle cx="17" cy="17" r="2.5"/>
+          </svg>
+        </div>
+
+        <h3 class="trust-heading" id="trustHeading">
+          <span class="trust-heading-line">Trusted by</span>
+          <span class="trust-heading-line">Leading Brands</span>
+          <span class="trust-heading-line">& Education</span>
+          <span class="trust-heading-line">Ventures</span>
+        </h3>
+        <p class="trust-desc" id="trustDesc">
+          Scaling digital ventures with high-converting Meta acquisition, audience architecture, and 35% lower cost-per-lead.
+        </p>
+      </div>
+
+      <!-- Right Cards Row (326u tall, 8u radius) -->
+      <div class="trust-cards-row">
+        
+        <!-- Avatar Card (293u wide, #d6d6d6) -->
+        <div class="trust-card card-avatar" id="avatarCard">
+          <div class="avatar-grid" id="avatarGrid">
+            <div class="avatar-img-wrap"><img src="assets/avatar-1.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/300f41b1-3de5-4153-afde-06e15e753ad0.webp'" alt="Avatar 1"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-2.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/bfff4cdf-4fda-4491-ada6-62f3b6236492.webp'" alt="Avatar 2"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-3.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/943b121e-fe72-479f-93ae-aa8cd1650f69.webp'" alt="Avatar 3"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-4.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/c673306f-2b81-4c3d-a7d2-3df61d481abb.webp'" alt="Avatar 4"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-5.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/2e4fcf11-d0fc-4f31-8f7a-dfe751777141.webp'" alt="Avatar 5"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-6.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/ab458fcd-4c2c-426f-8213-21cc3c7274be.webp'" alt="Avatar 6"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-7.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/c1fcd833-5ac9-41e9-9352-fead7e64fa24.webp'" alt="Avatar 7"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-8.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4c2b3307-e555-4633-949c-efd3b7e09d82.webp'" alt="Avatar 8"></div>
+          </div>
+          <div class="avatar-card-footer">
+            <div class="avatar-card-metric" id="counter56M">56M+</div>
+            <div class="avatar-card-caption" id="caption56M">Ad Impressions Delivered</div>
+          </div>
+        </div>
+
+        <!-- Awards Card (298u wide, #262626) -->
+        <div class="trust-card card-awards" id="awardsCard">
+          <div>
+            <div class="awards-metric-title" id="counter10">10+</div>
+            <div class="awards-sub-label" id="labelAwards">Industry Awards</div>
+          </div>
+          <div class="awards-laurel-badge">
+            <svg class="awards-laurel-svg" viewBox="0 0 100 50">
+              <path d="M20,40 C10,25 20,10 35,5 C30,15 32,28 40,35 C30,36 24,38 20,40 Z" fill="rgba(255,255,255,0.7)"/>
+              <path d="M80,40 C90,25 80,10 65,5 C70,15 68,28 60,35 C70,36 76,38 80,40 Z" fill="rgba(255,255,255,0.7)"/>
+              <circle cx="50" cy="20" r="8" fill="none" stroke="#fff" stroke-width="1.5"/>
+              <polygon points="50,14 52,18 56,19 53,22 54,26 50,24 46,26 47,22 44,19 48,18" fill="#fff"/>
+            </svg>
+            <div class="awards-badge-text" id="awardsBadgeText">BEST GROWTH STRATEGY 2026</div>
+          </div>
+          <p class="awards-card-note" id="awardsNote">
+            Spearheaded 500+ monthly verified leads and managed $1,000+ monthly Meta campaigns across high-growth cohorts.
+          </p>
+        </div>
+
+        <!-- Portrait Card (200u wide, cut off by right edge) -->
+        <div class="trust-card card-portrait" id="portraitCard">
+          <img 
+            src="assets/nihaz-portrait-card.webp" 
+            onerror="this.src='assets/card-portrait.webp'"
+            alt="Portrait Card" 
+            class="card-portrait-img" 
+            id="portraitCardImg"
+          >
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESUME & DOSSIER MODAL
+       Tamgid Hasan Nihaz Detailed Professional Experience
+       ============================================================ -->
+  <div class="modal-backdrop" id="resumeModal" onclick="handleBackdropClick(event)">
+    <div class="resume-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close-btn" onclick="closeResumeModal()" aria-label="Close modal">✕</button>
+      
+      <div class="resume-header">
+        <h2 class="resume-name" id="modalTitle">TAMGID HASAN NIHAZ</h2>
+        <div class="resume-role">DIGITAL MARKETING MANAGER | PERFORMANCE & GROWTH MARKETING</div>
+        <div class="resume-contact-bar">
+          <span>📍 Dhaka, Bangladesh</span>
+          <span>📞 +8801870831674</span>
+          <span>✉️ <a href="mailto:tamgidhasannihaz@gmail.com">tamgidhasannihaz@gmail.com</a></span>
+          <span>🔗 <a href="https://linkedin.com/in/th-nihaz-a77a4b449" target="_blank" rel="noopener">LinkedIn Profile</a></span>
+        </div>
+      </div>
+
+      <div class="resume-section-title">● PROFESSIONAL SUMMARY</div>
+      <p style="line-height: 1.6; color: rgba(255,255,255,0.8); font-size: calc(14 * var(--u));">
+        Results-driven digital marketing professional with 3 years of experience in performance marketing, lead generation, social media growth, and campaign strategy for education services. Contributed to 50% company revenue growth and 30% annual sales growth while generating 500+ qualified leads per month. Experienced in managing a five-member team, a $1,000 monthly advertising budget, and data-informed Meta campaign optimization.
+      </p>
+
+      <div class="resume-section-title">● PROFESSIONAL EXPERIENCE</div>
+      <div class="resume-experience-item">
+        <div class="exp-title-row">
+          <span>Digital Marketing Executive / Manager</span>
+          <span class="exp-period">Nov 2023 – Present</span>
+        </div>
+        <div class="exp-company">Hangeul.com.bd · Korean language courses, study-abroad services, and online education</div>
+        <ul class="resume-bullets">
+          <li>Developed and executed digital marketing strategies that contributed to <strong>50% company revenue growth</strong> during tenure and <strong>30% annual sales growth</strong>.</li>
+          <li>Generated <strong>500+ qualified leads per month</strong> through targeted audience development, social media campaigns, and conversion-focused content.</li>
+          <li>Managed and optimized a <strong>$1,000 monthly advertising budget</strong> across Meta campaigns, monitored KPIs, and reported performance to management.</li>
+          <li>Directed work allocation and campaign planning for a five-member team; adjusted campaigns using performance insights and marketing reports.</li>
+          <li>Led the Korean University Expo lead-generation campaign: developed ad strategy and creative content, generated <strong>600 leads</strong>, and reduced cost per lead by <strong>35%</strong>.</li>
+          <li>Strengthened organic social reach and promoted Korean language, overseas education, and online learning programs.</li>
+        </ul>
+      </div>
+
+      <div class="resume-section-title">● CORE COMPETENCIES & TOOLKIT</div>
+      <div class="skills-pills-row">
+        <span class="skill-pill">Meta Ads Manager</span>
+        <span class="skill-pill">Performance Marketing</span>
+        <span class="skill-pill">Lead Generation</span>
+        <span class="skill-pill">Campaign Optimization</span>
+        <span class="skill-pill">Social Media Management</span>
+        <span class="skill-pill">Organic Audience Growth</span>
+        <span class="skill-pill">Content Marketing</span>
+        <span class="skill-pill">SEO</span>
+        <span class="skill-pill">Sales Conversion</span>
+        <span class="skill-pill">Email Marketing</span>
+        <span class="skill-pill">Marketing Analytics</span>
+        <span class="skill-pill">CRM</span>
+        <span class="skill-pill">Team Leadership</span>
+        <span class="skill-pill">AI-Assisted Automation</span>
+        <span class="skill-pill">Adobe Photoshop</span>
+        <span class="skill-pill">Adobe Illustrator</span>
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">CapCut</span>
+      </div>
+
+      <div class="resume-section-title">● EDUCATION & CERTIFICATIONS</div>
+      <p style="line-height: 1.6; color: rgba(255,255,255,0.8); font-size: calc(14 * var(--u));">
+        <strong>Bachelor of Science in Computer Science and Engineering</strong> — Sonargaon University (2025)<br>
+        <strong>Certifications:</strong> Lead Academy Certificate · Graphic Design Certificate · ChatGPT Masterclasses<br>
+        <strong>Languages:</strong> Bengali (Native) · English (Fluent) · Korean (Intermediate)
+      </p>
+
+      <div class="modal-actions">
+        <a href="assets/Tamgid_Hasan_Nihaz_Resume.pdf" download="Tamgid_Hasan_Nihaz_Resume.pdf" class="download-pdf-btn">
+          📥 Download Official Resume PDF
+        </a>
+        <a href="mailto:tamgidhasannihaz@gmail.com" class="download-pdf-btn" style="background: rgba(255,255,255,0.15); color: #fff;">
+          ✉️ Send Direct Inquiry
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       VANILLA JS ENGINE
+       ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      let currentMode = 'nihaz';
+      const isRecorder = window.location.search.includes('rec=1');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const navPill = document.getElementById('navPill');
+      const navSlider = document.getElementById('navPillSlider');
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const heroPhoto = document.getElementById('heroPhotoImg');
+      const heroPhotoContainer = document.getElementById('heroPhotoContainer');
+      const heroTitleL1 = document.getElementById('heroTitleLine1');
+      const heroTitleL2 = document.getElementById('heroTitleLine2');
+      const heroTitleYear = document.getElementById('heroTitleYear');
+      const brandPlateTitle = document.getElementById('brandPlateTitle');
+      const heroAboutCopy = document.getElementById('heroAboutCopy');
+      const heroLogosRow = document.getElementById('heroLogosRow');
+      const outNowLabel = document.getElementById('outNowLabel');
+      const outNowImg = document.getElementById('outNowImg');
+      const outNowProgress = document.getElementById('outNowProgress');
+      const counter400 = document.getElementById('counter400');
+      const label400 = document.getElementById('label400');
+      const counter230 = document.getElementById('counter230');
+      const photoCardTop = document.getElementById('photoCardTop');
+      const photoCardDesc = document.getElementById('photoCardDesc');
+      const barYear = document.getElementById('barYear');
+      const barTagline = document.getElementById('barTagline');
+      const statementWords = Array.from(document.querySelectorAll('.stmt-word'));
+      const statementSub = document.getElementById('statementSub');
+      const trustHeading = document.getElementById('trustHeading');
+      const trustDesc = document.getElementById('trustDesc');
+      const counter56M = document.getElementById('counter56M');
+      const caption56M = document.getElementById('caption56M');
+      const counter10 = document.getElementById('counter10');
+      const labelAwards = document.getElementById('labelAwards');
+      const awardsBadgeText = document.getElementById('awardsBadgeText');
+      const awardsNote = document.getElementById('awardsNote');
+      const portraitCardImg = document.getElementById('portraitCardImg');
+      const avatarWraps = Array.from(document.querySelectorAll('.avatar-img-wrap'));
+      const trustPanel = document.getElementById('trustPanel');
+      const awardsCard = document.getElementById('awardsCard');
+      const resumeModal = document.getElementById('resumeModal');
+
+      // 1. Position Nav Slider
+      function positionNavSlider(targetEl) {
+        if (!targetEl || !navSlider || !navPill) return;
+        const rect = targetEl.getBoundingClientRect();
+        const parentRect = navPill.getBoundingClientRect();
+        const left = rect.left - parentRect.left;
+        navSlider.style.width = rect.width + 'px';
+        navSlider.style.transform = `translateX(${left}px)`;
+        navSlider.style.left = '0px';
+      }
+
+      const initialActiveNav = navLinks.find(l => l.classList.contains('active')) || navLinks[0];
+      if (initialActiveNav) {
+        setTimeout(() => positionNavSlider(initialActiveNav), 40);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          navLinks.forEach(l => l.classList.remove('hovered'));
+          link.classList.add('hovered');
+          positionNavSlider(link);
+        });
+      });
+
+      navPill.addEventListener('mouseleave', () => {
+        navLinks.forEach(l => l.classList.remove('hovered'));
+        const active = navLinks.find(l => l.classList.contains('active')) || navLinks[0];
+        positionNavSlider(active);
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            positionNavSlider(link);
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        const active = navLinks.find(l => l.classList.contains('active')) || navLinks[0];
+        positionNavSlider(active);
+      });
+
+      // 2. Animate Count Helper
+      function animateCount(elem, targetVal, suffix = '+', durationMs = 1400) {
+        if (!elem) return;
+        if (prefersReduced) {
+          elem.textContent = targetVal + suffix;
+          return;
+        }
+        let startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / durationMs, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(eased * targetVal);
+          elem.textContent = current + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            elem.textContent = targetVal + suffix;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      // 3. Load Animations
+      function initLoadAnimations() {
+        if (prefersReduced) return;
+
+        // Title lines rise out of masks
+        if (heroTitleL1 && heroTitleL2) {
+          heroTitleL1.animate([
+            { transform: 'translateY(100%)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 1000, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+
+          heroTitleL2.animate([
+            { transform: 'translateY(100%)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 1000, delay: 110, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        }
+
+        // Photo rises 40px and fades in over 1.3s
+        if (heroPhotoContainer) {
+          heroPhotoContainer.animate([
+            { transform: 'translateY(40px)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 1300, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        }
+
+        // Nav drops in
+        if (navPill) {
+          navPill.animate([
+            { transform: 'translateY(-20px)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 800, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        }
+
+        // Stagger other hero elements
+        const staggerElems = [
+          heroTitleYear,
+          document.querySelector('.hero-about'),
+          document.querySelector('.hero-book-btn'),
+          document.querySelector('.hero-stats-frame'),
+          document.querySelector('.hero-true-growth'),
+          document.querySelector('.hero-available'),
+          document.querySelector('.hero-out-now'),
+          document.querySelector('.hero-brand-plate'),
+          document.querySelector('.hero-logos-row'),
+          document.querySelector('.hero-date'),
+          document.querySelector('.hero-contact-btn')
+        ].filter(Boolean);
+
+        staggerElems.forEach((el, idx) => {
+          el.animate([
+            { transform: 'translateY(14px)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 750, delay: 120 + (idx * 55), easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        });
+
+        // Progress line draws in
+        if (outNowProgress) {
+          outNowProgress.animate([
+            { width: '0%' },
+            { width: '100%' }
+          ], { duration: 1400, delay: 300, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        }
+
+        const t400 = currentMode === 'nihaz' ? 500 : 400;
+        const t230 = currentMode === 'nihaz' ? 50 : 230;
+        const s230 = currentMode === 'nihaz' ? '%+' : '+';
+        animateCount(counter400, t400, '+', 1400);
+        animateCount(counter230, t230, s230, 1400);
+      }
+
+      // 4. Statement Word Scroll Fill
+      function interpolateColor(greyRgb, whiteRgb, weight) {
+        const w = Math.max(0, Math.min(1, weight));
+        const val = Math.round(greyRgb + (whiteRgb - greyRgb) * w);
+        return `rgb(${val}, ${val}, ${val})`;
+      }
+
+      function updateStatementFill(progress) {
+        const N = statementWords.length;
+        const head = progress * (N + 3);
+
+        statementWords.forEach((wordSpan, i) => {
+          if (i <= head - 3) {
+            wordSpan.style.color = '#f4f4f4';
+          } else if (i >= head) {
+            wordSpan.style.color = '#6f6f6f';
+          } else {
+            const weight = (head - i) / 3.0;
+            wordSpan.style.color = interpolateColor(111, 244, weight);
+          }
+        });
+      }
+
+      // 5. Scroll Handling
+      let trustSectionTriggered = false;
+
+      function triggerTrustAnimation() {
+        if (trustSectionTriggered) return;
+        trustSectionTriggered = true;
+
+        const val56M = 56;
+        const val10 = 10;
+        animateCount(counter56M, val56M, 'M+', 1600);
+        animateCount(counter10, val10, '+', 1400);
+
+        if (!prefersReduced) {
+          avatarWraps.forEach((wrap, i) => {
+            wrap.animate([
+              { transform: 'scale(0.4)', opacity: 0 },
+              { transform: 'scale(1)', opacity: 1 }
+            ], {
+              duration: 500,
+              delay: i * 70,
+              easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+              fill: 'forwards'
+            });
+          });
+        }
+      }
+
+      function onScroll() {
+        if (isRecorder || prefersReduced) return;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Parallax drift
+        if (heroPhoto) {
+          heroPhoto.style.transform = `translateY(${scrollY * 0.12}px)`;
+        }
+
+        // Statement Scroll Fill
+        const stmtSection = document.getElementById('statementSection');
+        if (stmtSection) {
+          const rect = stmtSection.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const start = windowHeight * 0.8;
+          const end = -rect.height * 0.2;
+          const totalDist = start - end;
+          const currentDist = start - rect.top;
+          const progress = Math.max(0, Math.min(1, currentDist / totalDist));
+          updateStatementFill(progress);
+        }
+
+        // Trust Panel Intersection
+        if (trustPanel && !trustSectionTriggered) {
+          const rect = trustPanel.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.85) {
+            triggerTrustAnimation();
+          }
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // 6. Recorder Mode (?rec=1)
+      if (isRecorder) {
+        const startTime = performance.now();
+        function recorderLoop(timestamp) {
+          const elapsed = (timestamp - startTime) / 1000;
+
+          if (heroPhoto) {
+            heroPhoto.style.transform = `translateY(${elapsed * 8}px)`;
+          }
+
+          if (elapsed < 1.3) {
+            updateStatementFill(0);
+          } else if (elapsed <= 4.2) {
+            const p = (elapsed - 1.3) / (4.2 - 1.3);
+            updateStatementFill(p);
+          } else {
+            updateStatementFill(1);
+          }
+
+          if (elapsed >= 3.5 && !trustSectionTriggered) {
+            triggerTrustAnimation();
+          }
+
+          if (elapsed >= 5.3 && awardsCard) {
+            awardsCard.style.transform = 'translateY(calc(-6 * var(--u)))';
+          }
+
+          requestAnimationFrame(recorderLoop);
+        }
+        requestAnimationFrame(recorderLoop);
+      }
+
+      // 7. Mode Switching
+      window.setMode = function (mode) {
+        currentMode = mode;
+        const btnNihaz = document.getElementById('btnModeNihaz');
+        const btnOrvante = document.getElementById('btnModeOrvante');
+
+        if (mode === 'nihaz') {
+          btnNihaz.classList.add('active');
+          btnOrvante.classList.remove('active');
+
+          document.title = "TAMGID HASAN NIHAZ — Digital Marketing Manager | Performance Portfolio";
+          heroTitleL1.textContent = "PURE";
+          heroTitleL2.textContent = "GROWTH";
+          heroTitleYear.textContent = "(’25) • TAMGID NIHAZ";
+          brandPlateTitle.textContent = "NIHAZ";
+          heroAboutCopy.textContent = "Results-driven performance marketing manager scaling Meta funnels, lead generation pipelines, and brand revenue.";
+          heroLogosRow.innerHTML = "<span>Hangeul</span><span>·</span><span>Korean Expo</span><span>·</span><span>Lead Academy</span>";
+          
+          outNowLabel.textContent = "Case / Korean Expo";
+          photoCardTop.textContent = "Campaign Feed · 2024/25";
+          photoCardDesc.textContent = "Company Revenue Growth & 30% Sales Spike";
+          label400.textContent = "Qualified Monthly Leads";
+          barYear.textContent = "2021";
+          barTagline.textContent = "PERFORMANCE IN DETAILS";
+
+          counter400.textContent = "500+";
+          counter230.textContent = "50%+";
+
+          portraitCardImg.src = "assets/nihaz-portrait-card.webp";
+          portraitCardImg.onerror = function() {
+            this.src = "assets/card-portrait.webp";
+          };
+
+          trustHeading.innerHTML = `
+            <span class="trust-heading-line">Trusted by</span>
+            <span class="trust-heading-line">Leading Brands</span>
+            <span class="trust-heading-line">& Education</span>
+            <span class="trust-heading-line">Ventures</span>
+          `;
+          trustDesc.textContent = "Scaling digital ventures with high-converting Meta acquisition, audience architecture, and 35% lower cost-per-lead.";
+          caption56M.textContent = "Ad Impressions Delivered";
+          awardsBadgeText.textContent = "BEST GROWTH STRATEGY 2026";
+          awardsNote.textContent = "Spearheaded 500+ monthly verified leads and managed $1,000+ monthly Meta campaigns across high-growth cohorts.";
+        } else {
+          btnOrvante.classList.add('active');
+          btnNihaz.classList.remove('active');
+
+          document.title = "ORVANTE — Pure Design Branding Agency";
+          heroTitleL1.textContent = "PURE";
+          heroTitleL2.textContent = "DESIGN";
+          heroTitleYear.textContent = "(’25)";
+          brandPlateTitle.textContent = "ORVANTE";
+          heroAboutCopy.textContent = "Building stunning website that every brand deserves to be seen.";
+          heroLogosRow.innerHTML = "<span>Lumon</span><span>·</span><span>Paperfold</span><span>·</span><span>Northwind</span>";
+
+          outNowLabel.textContent = "Out Now / Q Industrial";
+          photoCardTop.textContent = "Studio Feed · 05/06";
+          photoCardDesc.textContent = "Projects successfully launched worldwide";
+          label400.textContent = "Trusted Partner";
+          barYear.textContent = "2019";
+          barTagline.textContent = "LIVE IN DETAILS";
+
+          counter400.textContent = "400+";
+          counter230.textContent = "230+";
+
+          portraitCardImg.src = "assets/card-portrait.webp";
+          portraitCardImg.onerror = function() {
+            this.src = "https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/addecc7d-666f-4342-8290-ed7f7cbbffd6.webp";
+          };
+
+          trustHeading.innerHTML = `
+            <span class="trust-heading-line">Trusted by</span>
+            <span class="trust-heading-line">Hundreds of</span>
+            <span class="trust-heading-line">Growing</span>
+            <span class="trust-heading-line">Businesses</span>
+          `;
+          trustDesc.textContent = "Empowering modern brands with scalable digital campaigns, performance-first creative direction, and high-conversion customer acquisition systems.";
+          caption56M.textContent = "Global Collaborations";
+          awardsBadgeText.textContent = "BEST GROWTH PARTNER 2026";
+          awardsNote.textContent = "Recognized for excellence in full-funnel performance marketing and strategic growth execution.";
+        }
+      };
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlMode = urlParams.get('mode');
+      if (urlMode === 'orvante') {
+        window.setMode('orvante');
+      } else {
+        window.setMode('nihaz');
+      }
+
+      // 8. Modal Handlers
+      window.openResumeModal = function () {
+        if (resumeModal) {
+          resumeModal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      window.closeResumeModal = function () {
+        if (resumeModal) {
+          resumeModal.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      };
+
+      window.handleBackdropClick = function (e) {
+        if (e.target === resumeModal) {
+          closeResumeModal();
+        }
+      };
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeResumeModal();
+        }
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        initLoadAnimations();
+        onScroll();
+      });
+
+    })();
+  </script>
+</body>
+</html>
