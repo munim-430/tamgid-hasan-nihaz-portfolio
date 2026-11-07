@@ -1568,6 +1568,12 @@
 .hud button.snd.off{color:#8a8a8a}
 .hud button.snd.tap{background:#0D99FF;animation:hudpulse 1.6s ease-in-out infinite}
 @keyframes hudpulse{50%{box-shadow:0 0 0 4px rgba(13,153,255,.28)}}
+@media (max-width:768px){
+  .hud{max-width:95vw;padding:5px 8px;gap:5px;bottom:12px;font-size:11px}
+  .hud button[data-a="tour"],.hud button[data-a="speed"],.hud .bar{display:none!important}
+  .hud .txt{max-width:100px;overflow:hidden;text-overflow:ellipsis}
+  .hud button{padding:6px 9px;font-size:11px}
+}
 `;
 
   // -------------------------------------------------------------------- env
@@ -3971,6 +3977,8 @@
       if (!pathOk()) return;
       if (cfg.trigger === "button") mountButton();
       else if (cfg.trigger === "auto") {
+        const isMobileOrTouch = window.innerWidth <= 768 || ('ontouchstart' in window && window.innerWidth <= 1024);
+        if (isMobileOrTouch) return;
         if (cfg.reducedMotion !== "ignore" && window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         try {
           if (cfg.once === "session") {
