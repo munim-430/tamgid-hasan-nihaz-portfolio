@@ -165,8 +165,31 @@ This repository is pre-configured for instant static deployment on Vercel:
 
 ---
 
+## ⚡ Multiplayer Swarm Cursors Rebuild Effect
+
+The website embeds the live multiplayer cursor rebuild effect from **[harshit403-pixel/reveal-cursors](https://github.com/harshit403-pixel/reveal-cursors)** (adapted from **Joel Califa's [Swarm](https://califa.github.io/swarm-site/)**):
+
+- **Automatic Start on Load**: As soon as the page loads, the screen wipes into a blank canvas and a swarm of named, colored Figma-style multiplayer cursors rebuilds the real page layer-by-layer: crosshair-drawn boxes, typed text, pen-tool lines, ruler guides, alt-drag duplicates, with synthesized mechanical sounds.
+- **Interactive Control Bar**: A top control bar provides real-time progress, a cursor counter, sound toggle (`M`), pause/resume, and an instant **"Go live"** button to reveal the fully rendered page immediately (`Esc` also exits).
+- **On-Demand Re-triggering**: Visitors can replay the swarm rebuild at any time by clicking the **⚡ Rebuild** button in the bottom floating pill, using the keyboard shortcut `Alt+Shift+S`, or appending `?swarm=1` to the URL.
+- **Licensing Credit**: The Swarm effect design originates from **Joel Califa** (`https://califa.github.io/swarm-site/`) with adaptations by Harshit Pant (`reveal-cursors`). The header credit comment is preserved in `assets/swarm-cursors.js`.
+
+---
+
+## 🚀 Performance Optimizations (Fast Production Load)
+
+To ensure sub-second First Contentful Paint (FCP) and Largest Contentful Paint (LCP) on Vercel:
+
+1. **Non-Blocking Font Architecture**: Google Fonts (`Archivo` & `Inter Tight`) load asynchronously via `<link rel="preload" as="style">` and `media="print" onload="this.media='all'"`, completely eliminating render-blocking delays while maintaining graceful system font fallbacks.
+2. **Critical LCP Preloading**: Tamgid's retina hero photo (`assets/hero-nihaz.webp`, ~91 KB) is declared with `<link rel="preload" as="image" fetchpriority="high">` in `<head>` so it begins downloading immediately alongside HTML parsing.
+3. **Edge Asset Caching**: High-priority assets in `/assets/` are cached immutably with `Cache-Control: public, max-age=31536000, immutable` on Vercel's global CDN Edge Network.
+4. **Deferred Media & Lazy Loading**: Below-the-fold media assets (stat card photos, avatar grid, trust portraits) utilize native `loading="lazy"` and `decoding="async"` to preserve maximum bandwidth for the hero artboard and initial swarm canvas capture.
+
+---
+
 ## 📄 License & Attribution
 
 - **Concept & Layout**: Orvante Studio Monochrome Editorial Benchmark.
 - **Candidate Profile**: Tamgid Hasan Nihaz — Digital Marketing Manager.
+- **Swarm Effect**: Joel Califa ([Swarm](https://califa.github.io/swarm-site/)) & Harshit Pant ([reveal-cursors](https://github.com/harshit403-pixel/reveal-cursors)).
 - **Created by**: Hasibul Munim ([@munim-430](https://github.com/munim-430)).

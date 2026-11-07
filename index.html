@@ -5,9 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ORVANTE — Tamgid Hasan Nihaz | Performance & Growth Marketing</title>
   <meta name="description" content="Orvante Studio — Performance and growth marketing portfolio for Tamgid Hasan Nihaz. Strict monochrome editorial layout.">
+  <!-- Preconnect to external font origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Non-blocking asynchronous Google Fonts with fallback display -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter+Tight:wght@100..900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter+Tight:wght@100..900&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter+Tight:wght@100..900&display=swap">
+  </noscript>
+
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" as="image" href="assets/hero-nihaz.webp" type="image/webp" fetchpriority="high">
   <style>
     /* -------------------------------------------------------------
        SCALE ENGINE
@@ -1580,10 +1590,14 @@
 </head>
 <body>
 
-  <!-- Floating Mode Switcher (Tamgid Nihaz Portfolio vs Pure Orvante Spec) -->
-  <aside class="view-mode-pill" aria-label="View Mode Switcher">
+  <!-- Floating Mode Switcher (Tamgid Nihaz Portfolio vs Pure Orvante Spec) & Swarm Rebuild Trigger -->
+  <aside class="view-mode-pill" aria-label="View Mode Switcher" data-swarm-ignore>
     <button type="button" class="mode-btn active" id="btnModeNihaz" onclick="setMode('nihaz')">Tamgid Nihaz</button>
     <button type="button" class="mode-btn" id="btnModeOrvante" onclick="setMode('orvante')">Orvante Spec</button>
+    <button type="button" class="mode-btn" id="btnSwarmTrigger" data-swarm-trigger title="Rebuild page with live Swarm Cursors" style="display:inline-flex;align-items:center;gap:4px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      Rebuild
+    </button>
   </aside>
 
   <!-- ============================================================
@@ -1638,11 +1652,13 @@
       <!-- 5. Hero Photo at (338, -86, 764 × 1024u) with Brand Plate & Logos -->
       <div class="hero-photo-container" id="heroPhotoContainer">
         <img 
-          src="assets/hero-photo.webp" 
-          onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/7dc8b8f3-4ccb-4599-8ce4-7f7c7881bad9.webp'"
-          alt="Monochrome Studio Photo" 
+          src="assets/hero-nihaz.webp" 
+          alt="Tamgid Hasan Nihaz — Digital Marketing & Growth Lead" 
           class="hero-photo-img" 
           id="heroPhotoImg"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
         >
 
         <!-- Brand Plate over the man's back at (532, 444, 364 × 73u) -->
@@ -1718,9 +1734,10 @@
         <div class="stats-card-photo">
           <img 
             src="assets/card-230.webp" 
-            onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/a9d3641f-d629-46e5-8d2d-5f75386b803d.webp'"
             alt="Studio Feed" 
             class="stats-card-photo-bg"
+            loading="lazy"
+            decoding="async"
           >
           <div class="stats-photo-overlay"></div>
           <div class="stats-photo-top" id="photoCardTop">Campaign Feed · 2024/25</div>
@@ -1740,10 +1757,11 @@
         <div class="out-now-card" onclick="openResumeModal()">
           <img 
             src="assets/card-q-industrial.webp" 
-            onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/9340eb08-877d-4d08-91fb-b70754541d98.webp'"
             alt="Case Study" 
             class="out-now-img" 
             id="outNowImg"
+            loading="lazy"
+            decoding="async"
           >
           <div class="out-now-arrow-btn">↗</div>
           <div class="out-now-progress-track">
@@ -1836,14 +1854,14 @@
         <!-- Avatar Card (293u wide, #d6d6d6) -->
         <div class="trust-card card-avatar" id="avatarCard">
           <div class="avatar-grid" id="avatarGrid">
-            <div class="avatar-img-wrap"><img src="assets/avatar-1.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/300f41b1-3de5-4153-afde-06e15e753ad0.webp'" alt="Avatar 1"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-2.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/bfff4cdf-4fda-4491-ada6-62f3b6236492.webp'" alt="Avatar 2"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-3.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/943b121e-fe72-479f-93ae-aa8cd1650f69.webp'" alt="Avatar 3"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-4.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/c673306f-2b81-4c3d-a7d2-3df61d481abb.webp'" alt="Avatar 4"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-5.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/2e4fcf11-d0fc-4f31-8f7a-dfe751777141.webp'" alt="Avatar 5"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-6.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/ab458fcd-4c2c-426f-8213-21cc3c7274be.webp'" alt="Avatar 6"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-7.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/c1fcd833-5ac9-41e9-9352-fead7e64fa24.webp'" alt="Avatar 7"></div>
-            <div class="avatar-img-wrap"><img src="assets/avatar-8.webp" onerror="this.src='https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4c2b3307-e555-4633-949c-efd3b7e09d82.webp'" alt="Avatar 8"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-1.webp" alt="Avatar 1" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-2.webp" alt="Avatar 2" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-3.webp" alt="Avatar 3" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-4.webp" alt="Avatar 4" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-5.webp" alt="Avatar 5" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-6.webp" alt="Avatar 6" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-7.webp" alt="Avatar 7" loading="lazy" decoding="async"></div>
+            <div class="avatar-img-wrap"><img src="assets/avatar-8.webp" alt="Avatar 8" loading="lazy" decoding="async"></div>
           </div>
           <div class="avatar-card-footer">
             <div class="avatar-card-metric" id="counter56M">56M+</div>
@@ -1875,10 +1893,11 @@
         <div class="trust-card card-portrait" id="portraitCard">
           <img 
             src="assets/nihaz-portrait-card.webp" 
-            onerror="this.src='assets/card-portrait.webp'"
             alt="Portrait Card" 
             class="card-portrait-img" 
             id="portraitCardImg"
+            loading="lazy"
+            decoding="async"
           >
         </div>
 
@@ -1891,7 +1910,7 @@
        RESUME & DOSSIER MODAL
        Tamgid Hasan Nihaz Detailed Professional Experience
        ============================================================ -->
-  <div class="modal-backdrop" id="resumeModal" onclick="handleBackdropClick(event)">
+  <div class="modal-backdrop" id="resumeModal" onclick="handleBackdropClick(event)" data-swarm-ignore>
     <div class="resume-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button type="button" class="modal-close-btn" onclick="closeResumeModal()" aria-label="Close modal">✕</button>
       
@@ -2297,6 +2316,7 @@
           counter400.textContent = "500+";
           counter230.textContent = "50%+";
 
+          if (heroPhoto) heroPhoto.src = "assets/hero-nihaz.webp";
           portraitCardImg.src = "assets/nihaz-portrait-card.webp";
           portraitCardImg.onerror = function() {
             this.src = "assets/card-portrait.webp";
@@ -2334,6 +2354,7 @@
           counter400.textContent = "400+";
           counter230.textContent = "230+";
 
+          if (heroPhoto) heroPhoto.src = "assets/hero-photo.webp";
           portraitCardImg.src = "assets/card-portrait.webp";
           portraitCardImg.onerror = function() {
             this.src = "https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/addecc7d-666f-4342-8290-ed7f7cbbffd6.webp";
@@ -2394,5 +2415,8 @@
 
     })();
   </script>
+<!-- swarm-cursors:start -->
+<script src="assets/swarm-cursors.js" defer data-trigger="auto" data-delay="600"></script>
+<!-- swarm-cursors:end -->
 </body>
 </html>
